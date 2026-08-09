@@ -1,16 +1,83 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Professional Artist Lomansh</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fancybox CSS и JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+</head>
+<body>
 
-        <h1>Professional Artist Lomansh</h1>
-        <p>My first paragraph.</p>
+    <h1>Professional Artist Lomansh</h1>
 
-        <p>Contacts:</p> 
-        <p>Telegram- <a = href="http://t.me/LamanshButPixel">@LamanshButPixel</a></p>
-        <a rel="me" href="https://mastodon.social/@LomanshButPixel">Mastodon</a>
+    <section class="portfolio">
+        <h2>Мои работы</h2>
         
-    </body>
+        <!-- ЕДИНЫЙ контейнер сетки без вложенностей -->
+        <div class="portfolio-grid">
+
+            <!-- Карточка 1 -->
+            <div class="card">
+                <a href="img/DarkVirgin.png" data-fancybox="gallery" data-caption="Dark Virgin">
+                    <img src="img/DarkVirgin.png" alt="Проект 1">
+                </a>
+                <div class="card-body">
+                    <h3>Название проекта 1</h3>
+                    <p>Описание проекта</p>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="card">
+                <a href="img/field.png" data-fancybox="gallery" data-caption="Field">
+                    <img src="img/field.png" alt="Проект 2">
+                </a>
+                <div class="card-body">
+                    <h3>Название проекта 2</h3>
+                    <p>Описание проекта</p>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="card">
+                <a href="img/Море-Эпсилона.gif" data-fancybox="gallery" data-caption="Море Эпсилона">
+                    <img src="img/Море-Эпсилона.gif" alt="Проект 3">
+                </a>
+                <div class="card-body">
+                    <h3>Название проекта 3</h3>
+                    <p>Описание проекта</p>
+                </div>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="card">
+                <a href="img/pirs.png" data-fancybox="gallery" data-caption="Пирс">
+                    <img src="img/pirs.png" alt="Проект 4">
+                </a>
+                <div class="card-body">
+                    <h3>Название проекта 4</h3>
+                    <p>Описание проекта</p>
+                </div>
+            </div>
+
+        </div> <!-- Конец .portfolio-grid -->
+    </section>
+
+    <!-- Инициализация галереи Fancybox -->
+    <script>
+      Fancybox.bind("[data-fancybox]", {
+        // Настройки Fancybox (если понадобятся)
+      });
+    </script>
+
+    <!-- Блок контактов -->
+    <footer class="contacts">
+        <p>Contacts:</p> 
+        <p>Telegram: <a href="http://t.me/LamanshButPixel" target="_blank">@LamanshButPixel</a></p>
+        <p><a rel="me" href="https://mastodon.social/@LomanshButPixel" target="_blank">Mastodon</a></p>
+    </footer>
+    
+</body>
 </html>

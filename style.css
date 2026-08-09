@@ -1,0 +1,136 @@
+/* Основной блок портфолио */
+
+/* 1. Защита от горизонтальной прокрутки всего сайта */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* Запрещает сайту прокручиваться вправо */
+  margin: 0;
+  padding: 0;
+}
+h1{
+text-align: center;
+}
+h2{
+    color: #fff;
+}
+
+.portfolio {
+  padding: 50px 20px;
+  text-align: center;}
+/* Сетка карточек: выстраивает 1, 2 или 3 колонки в зависимости от ширины экрана */
+/* Контейнер для карточек: строго 2 колонки одинаковой ширины */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 равные колонки */
+  gap: 25px;                            /* Отступ между карточками */
+  max-width: 800px;                      /* Фиксированная максимальная ширина контейнера */
+  margin: 0 auto;                       /* Центрирование на странице */
+  box-sizing: border-box;
+}
+
+/* Карточка */
+.card {
+  width: 100%;                           /* Карточка растягивается на всю ширину своей колонки */
+  background-color: #2b2b2b;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Блок картинки: у всех одинаковая фиксированная область */
+.card img {
+  width: 100%;
+  height: 240px;                         /* Фиксированная высота для всех картинок */
+  object-fit: cover;                     /* Картинка полностью забивает область без пустых полей */
+  object-position: center;              /* Фокус по центру */
+  display: block;
+  image-rendering: pixelated;            /* Четкие пиксели для пиксель-арта */
+}
+
+/* Текстовый блок карточки */
+.card-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}
+
+.card p {
+  color: #bbbbbb;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Кнопка */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+body {
+  background-image: url('img/test-bg.png'); /* Путь к вашему рисунку */
+  background-repeat: no-repeat;              /* Не размножать картинку плиткой */
+  background-position: center center;        /* Центрировать фон */
+  background-attachment: fixed;              /* Фон остается неподвижным при прокрутке */
+  background-size: cover;                    /* Растянуть на весь экран без потери пропорций */
+  margin: 0;
+}
+
+/* Курсор-лупа при наведении на картинки работ */
+.zoomable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.zoomable:hover {
+  transform: scale(1.02); /* Легкое увеличение при наведении */
+}
+
+/* Затемненный фон модального окна */
+.modal {
+  display: none; /* По умолчанию скрыто */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Черный полупрозрачный фон */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Увеличенная картинка по центру */
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  animation: zoom 0.3s ease;
+}
+
+/* Анимация плавного появления */
+@keyframes zoom {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Кнопка крестика для закрытия */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
