@@ -9,9 +9,10 @@ html, body {
 }
 h1{
 text-align: center;
+color:aliceblue
 }
 h2{
-    color: #fff;
+    color: #000000;
 }
 
 .portfolio {
@@ -21,32 +22,44 @@ h2{
 /* Контейнер для карточек: строго 2 колонки одинаковой ширины */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 равные колонки */
-  gap: 25px;                            /* Отступ между карточками */
-  max-width: 800px;                      /* Фиксированная максимальная ширина контейнера */
-  margin: 0 auto;                       /* Центрирование на странице */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;                  /* Расстояние между рамками карточек */
+  max-width: 800px;
+  margin: 0 auto;
   box-sizing: border-box;
+  /* Стили для внешней общей рамки */
+  border: 3px solid #2b2b2b;  /* Чёрная/тёмная внешняя линия */
+  padding: 15px;              /* Отступ от внешней линии до карточек */
+  background-color: transparent; /* Или можно задать цвет фона внутри рамки */
+  /* Выравнивает содержимое по центру, если колонка не заполнена */
+  justify-items: center; 
 }
 
 /* Карточка */
+/* Карточка теперь является просто рамкой для картинки */
 .card {
-  width: 100%;                           /* Карточка растягивается на всю ширину своей колонки */
-  background-color: #2b2b2b;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  border-radius: 0;           /* Чёткие прямые углы */
+  border: 2px solid #2b2b2b;  /* Чёрный контур вокруг каждого арта */
+  padding: 6px;               /* Внутренний отступ (создаёт эффект двойной рамки) */
+  background-color: transparent; /* Цвет зазора между артом и рамкой */
   box-sizing: border-box;
+  transition: transform 0.2s ease;
 }
 
-/* Блок картинки: у всех одинаковая фиксированная область */
+/* Эффект легкого приподнимания карточки при наведении */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Картинка забивает всю карточку */
 .card img {
   width: 100%;
-  height: 240px;                         /* Фиксированная высота для всех картинок */
-  object-fit: cover;                     /* Картинка полностью забивает область без пустых полей */
-  object-position: center;              /* Фокус по центру */
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
   display: block;
-  image-rendering: pixelated;            /* Четкие пиксели для пиксель-арта */
+  image-rendering: pixelated;
 }
 
 /* Текстовый блок карточки */
@@ -77,12 +90,14 @@ h2{
   border-radius: 5px;
 }
 body {
-  background-image: url('img/test-bg.png'); /* Путь к вашему рисунку */
-  background-repeat: no-repeat;              /* Не размножать картинку плиткой */
-  background-position: center center;        /* Центрировать фон */
-  background-attachment: fixed;              /* Фон остается неподвижным при прокрутке */
-  background-size: cover;                    /* Растянуть на весь экран без потери пропорций */
+  background-color: #d0b345;
+  /* background-image: url('img/test-bg.png');
+  background-repeat: no-repeat;             
+  background-position: center center;        
+  background-attachment: fixed;              
+  background-size: cover;                    
   margin: 0;
+   */
 }
 
 /* Курсор-лупа при наведении на картинки работ */
@@ -133,4 +148,70 @@ body {
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
+}
+/* Контейнер для шапки */
+.site-header {
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+}
+
+/* Картинка-заголовок */
+.header-logo {
+  max-width: 90%;            /* Не дает картинке выходить за границы экрана на телефонах */
+  width: 500px;              /* Желаемая ширина заголовка (настройте под свой рисунок) */
+  height: auto;              /* Высота подстроится автоматически */
+  display: inline-block;
+  image-rendering: pixelated; /* Сохраняет четкость пикселей, если заголовок нарисован в стиле pixel-art */
+  
+  /* Опционально: эффект лёгкого свечения или тени вокруг нарисованных букв */
+  /* filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.6)); */
+}
+/* Блок контактов с пиксельной рамкой */
+.contacts {
+  max-width: 800px;             /* Ширина совпадает с сеткой галереи */
+  margin: 40px auto 50px auto;  /* Центрирование и отступ от галереи */
+  padding: 15px;                /* Внутренний отступ внешнего контура */
+  border: 3px solid #2b2b2b;    /* Внешняя тёмная линия */
+  background-color: transparent;
+  box-sizing: border-box;
+  text-align: center;
+  color: #2b2b2b;
+  font-family: inherit;
+}
+
+/* Внутренняя плашка контактов (создаёт эффект двойной рамки) */
+.contacts-inner {
+  border: 2px solid #2b2b2b;    /* Внутренняя линия */
+  padding: 20px;
+  background-color: transparent;
+}
+
+/* Заголовок Contacts */
+.contacts h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Строки с контактами */
+.contacts p {
+  margin: 8px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Ссылки */
+.contacts a {
+  color: #2b2b2b;               /* Тёмный цвет под стилистику контура */
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+/* Эффект при наведении на ссылку */
+.contacts a:hover {
+  color: #ffffff;               /* Ссылка становится белой при наведении */
+  background-color: #2b2b2b;    /* Тёмная плашка при наведении */
+  padding: 2px 6px;
+  text-decoration: none;
 }
